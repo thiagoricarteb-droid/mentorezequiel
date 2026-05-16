@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezequiel Escolástico | Mentor High Ticket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepBlack: '#0B0B0B',
+                        petroleumBlue: '#0F172A',
+                        iceWhite: '#F5F5F5',
+                        gold: '#B08D57',
+                        goldDark: '#8C6A3E',
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        
+        body {
+            background-color: #0B0B0B;
+            color: #F5F5F5;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(176, 141, 87, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #F5F5F5 0%, #B08D57 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(176, 141, 87, 0.2);
+        }
+
+        .premium-border {
+            border: 1px solid rgba(176, 141, 87, 0.3);
+        }
+
+        .mentor-photo-mask {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #B08D57;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8C6A3E;
+        }
+    </style>
+</head>
+<body x-data="{ mobileMenu: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 px-6 py-4" :class="scrolled ? 'glass py-3' : 'bg-transparent'">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="font-cinzel text-xl md:text-2xl font-bold tracking-widest text-gold">EZEQUIEL</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#home" class="hover:text-gold transition-colors">Início</a>
+                <a href="#sobre" class="hover:text-gold transition-colors">Sobre</a>
+                <a href="#metodo" class="hover:text-gold transition-colors">Método</a>
+                <a href="#resultados" class="hover:text-gold transition-colors">Resultados</a>
+                <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="bg-gold hover:bg-goldDark text-deepBlack px-6 py-2 rounded-full font-bold transition-all btn-premium">
+                    Falar com Especialista
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="md:hidden text-gold" @click="mobileMenu = !mobileMenu">
+                <i data-lucide="menu" x-show="!mobileMenu"></i>
+                <i data-lucide="x" x-show="mobileMenu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="absolute top-full left-0 w-full glass p-6 flex flex-col gap-6 md:hidden text-center uppercase tracking-widest text-sm font-medium"
+             x-cloak>
+            <a href="#home" @click="mobileMenu = false" class="hover:text-gold">Início</a>
+            <a href="#sobre" @click="mobileMenu = false" class="hover:text-gold">Sobre</a>
+            <a href="#metodo" @click="mobileMenu = false" class="hover:text-gold">Método</a>
+            <a href="#resultados" @click="mobileMenu = false" class="hover:text-gold">Resultados</a>
+            <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" @click="mobileMenu = false" class="bg-gold text-deepBlack py-3 rounded-full font-bold">Falar com Especialista</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-deepBlack via-deepBlack/80 to-transparent z-10"></div>
+            <img src="https://i.postimg.cc/zGrcJJnm/Whats-App-Image-2026-05-16-at-14-54-05.jpg" alt="Ezequiel Escolástico" class="w-full h-full object-cover grayscale opacity-40">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-3/5" data-aos="fade-right">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="h-[1px] w-12 bg-gold"></span>
+                    <span class="text-gold uppercase tracking-[0.3em] text-sm font-semibold">Mentoria Comercial High Ticket</span>
+                </div>
+                <h1 class="font-cinzel text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
+                    Transforme seu Comercial em uma <span class="gradient-text">Máquina de Vendas</span>
+                </h1>
+                <p class="text-xl text-iceWhite/70 max-w-xl mb-10 leading-relaxed font-light">
+                    Aprenda os processos comerciais de elite que geram previsibilidade, escala e possibilitam o fechamento de vendas de alto valor em qualquer cenário.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#metodo" class="bg-gold hover:bg-goldDark text-deepBlack px-10 py-5 rounded-full font-bold text-center transition-all btn-premium text-lg uppercase tracking-wider">
+                        Quero Escalar Meu Comercial
+                    </a>
+                    <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="border border-gold text-gold hover:bg-gold/10 px-10 py-5 rounded-full font-bold text-center transition-all btn-premium text-lg uppercase tracking-wider">
+                        Falar com Especialista
+                    </a>
+                </div>
+
+                <!-- Metrics -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 pt-12 border-t border-white/10">
+                    <div>
+                        <div class="text-3xl font-cinzel text-gold font-bold mb-1">+10MM</div>
+                        <div class="text-xs uppercase tracking-widest text-iceWhite/50">Em Vendas</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-cinzel text-gold font-bold mb-1">7+</div>
+                        <div class="text-xs uppercase tracking-widest text-iceWhite/50">Dígitos Anuais</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-cinzel text-gold font-bold mb-1">100+</div>
+                        <div class="text-xs uppercase tracking-widest text-iceWhite/50">Closers Formados</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-cinzel text-gold font-bold mb-1">Elite</div>
+                        <div class="text-xs uppercase tracking-widest text-iceWhite/50">Processos de Vendas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Banner -->
+    <div class="bg-petroleumBlue py-12 relative overflow-hidden">
+        <div class="container mx-auto px-6 overflow-hidden">
+            <div class="flex flex-wrap justify-between items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+                <span class="text-xl font-cinzel uppercase tracking-[0.5em]">Private Equity</span>
+                <span class="text-xl font-cinzel uppercase tracking-[0.5em]">Scalability</span>
+                <span class="text-xl font-cinzel uppercase tracking-[0.5em]">Performance</span>
+                <span class="text-xl font-cinzel uppercase tracking-[0.5em]">High Ticket</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quem é -->
+    <section id="sobre" class="py-24 bg-deepBlack overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-20 items-center">
+                <div class="lg:w-1/2 relative" data-aos="fade-up">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-gold/30"></div>
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 border-r border-b border-gold/30"></div>
+                    <img src="https://i.postimg.cc/9XyPcy1c/Whats-App-Image-2026-05-16-at-14-57-26.jpg" alt="Ezequiel Escolástico" class="w-full relative z-10 grayscale hover:grayscale-0 transition-all duration-700 mentor-photo-mask">
+                </div>
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <span class="text-gold uppercase tracking-[0.3em] text-sm font-semibold mb-4 block">A Autoridade</span>
+                    <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-8">Ezequiel Escolástico</h2>
+                    <div class="space-y-6 text-iceWhite/70 leading-relaxed text-lg font-light">
+                        <p>
+                            Estrategista comercial e mentor de negócios focado em alta performance. Ezequiel Escolástico não apenas vende; ele constrói ecossistemas de vendas previsíveis e lucrativos para quem joga no nível High Ticket.
+                        </p>
+                        <p>
+                            Ao longo dos últimos anos, operacionalizou mais de R$ 10 milhões em faturamento direto, transformando operações comerciais amadoras em estruturas de private equity profissionalizadas.
+                        </p>
+                        <p>
+                            Seu foco é simples: **Clareza, Processo e Fechamento.** Se você busca sair do "marketing de esperança" e entrar no campo da previsibilidade matemática de lucros, você está no lugar certo.
+                        </p>
+                    </div>
+                    <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="inline-flex items-center gap-3 mt-10 text-gold font-bold uppercase tracking-widest hover:gap-6 transition-all">
+                        Agendar Análise Estratégica <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O Problema -->
+    <section class="py-24 glass relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-gold uppercase tracking-[0.3em] text-sm font-semibold mb-4 block" data-aos="fade-down">O Cenário Atual</span>
+            <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-16" data-aos="fade-up">Seu comercial está estagnado?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-10 text-left">
+                <div class="p-8 border border-white/5 bg-white/5 rounded-2xl hover:bg-white/10 transition-all group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-red-900/20 rounded-full flex items-center justify-center mb-6 border border-red-500/20 text-red-500 group-hover:scale-110 transition-all">
+                        <i data-lucide="x-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Vendas Instáveis</h3>
+                    <p class="text-iceWhite/60 font-light">Você não sabe quanto vai vender amanhã. O faturamento é uma montanha-russa emocional que tira seu sono.</p>
+                </div>
+
+                <div class="p-8 border border-white/5 bg-white/5 rounded-2xl hover:bg-white/10 transition-all group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-red-900/20 rounded-full flex items-center justify-center mb-6 border border-red-500/20 text-red-500 group-hover:scale-110 transition-all">
+                        <i data-lucide="ghost"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Leads Desperdiçados</h3>
+                    <p class="text-iceWhite/60 font-light">O investimento em anúncios é alto, mas os leads chegam e não convertem por falta de um script e processo de elite.</p>
+                </div>
+
+                <div class="p-8 border border-white/5 bg-white/5 rounded-2xl hover:bg-white/10 transition-all group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-red-900/20 rounded-full flex items-center justify-center mb-6 border border-red-500/20 text-red-500 group-hover:scale-110 transition-all">
+                        <i data-lucide="trending-down"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Time Desalinhado</h3>
+                    <p class="text-iceWhite/60 font-light">Sua equipe comercial (ou você mesmo) não tem clareza técnica sobre como conduzir uma negociação de alto valor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Método -->
+    <section id="metodo" class="py-24 bg-deepBlack">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+                <div class="max-w-2xl" data-aos="fade-right">
+                    <span class="text-gold uppercase tracking-[0.3em] text-sm font-semibold mb-4 block">Framework Exclusivo</span>
+                    <h2 class="font-cinzel text-5xl font-bold mb-6">Método Comercial <br><span class="text-gold">High Ticket</span></h2>
+                    <p class="text-iceWhite/60 font-light text-lg">
+                        Uma estrutura dividida em 5 pilares fundamentais projetados para escalar seu faturamento com margens altíssimas.
+                    </p>
+                </div>
+                <div class="hidden lg:block pb-5" data-aos="fade-left">
+                    <img src="https://i.postimg.cc/LXcVNTD6/Whats-App-Image-2026-05-16-at-14-54-05-(1).jpg" alt="Resultados" class="w-48 rounded-xl opacity-80 border border-gold/30">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Pilar 1 -->
+                <div class="p-8 premium-border bg-petroleumBlue/20 rounded-xl relative overflow-hidden group hover:bg-gold/5 transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <span class="absolute -right-4 -bottom-4 text-6xl font-cinzel text-gold/5 font-bold">01</span>
+                    <h3 class="text-xl font-bold mb-4 text-gold">Posicionamento</h3>
+                    <p class="text-sm text-iceWhite/60 font-light leading-relaxed">Como ser percebido como autoridade antes mesmo de abrir a boca no call de vendas.</p>
+                </div>
+                <!-- Pilar 2 -->
+                <div class="p-8 premium-border bg-petroleumBlue/20 rounded-xl relative overflow-hidden group hover:bg-gold/5 transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <span class="absolute -right-4 -bottom-4 text-6xl font-cinzel text-gold/5 font-bold">02</span>
+                    <h3 class="text-xl font-bold mb-4 text-gold">Processo</h3>
+                    <p class="text-sm text-iceWhite/60 font-light leading-relaxed">A arquitetura por trás de cada lead: do primeiro contato ao contrato assinado.</p>
+                </div>
+                <!-- Pilar 3 -->
+                <div class="p-8 premium-border bg-petroleumBlue/20 rounded-xl relative overflow-hidden group hover:bg-gold/5 transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <span class="absolute -right-4 -bottom-4 text-6xl font-cinzel text-gold/5 font-bold">03</span>
+                    <h3 class="text-xl font-bold mb-4 text-gold">Conversão</h3>
+                    <p class="text-sm text-iceWhite/60 font-light leading-relaxed">Scripts de alta impacto e quebras de objeção que tornam o "não" quase impossível.</p>
+                </div>
+                <!-- Pilar 4 -->
+                <div class="p-8 premium-border bg-petroleumBlue/20 rounded-xl relative overflow-hidden group hover:bg-gold/5 transition-all" data-aos="fade-up" data-aos-delay="400">
+                    <span class="absolute -right-4 -bottom-4 text-6xl font-cinzel text-gold/5 font-bold">04</span>
+                    <h3 class="text-xl font-bold mb-4 text-gold">Escala</h3>
+                    <p class="text-sm text-iceWhite/60 font-light leading-relaxed">Multiplique seus resultados sem multiplicar seu esforço manual ou horas trabalhadas.</p>
+                </div>
+                <!-- Pilar 5 -->
+                <div class="p-8 premium-border bg-petroleumBlue/20 rounded-xl relative overflow-hidden group hover:bg-gold/5 transition-all" data-aos="fade-up" data-aos-delay="500">
+                    <span class="absolute -right-4 -bottom-4 text-6xl font-cinzel text-gold/5 font-bold">05</span>
+                    <h3 class="text-xl font-bold mb-4 text-gold">Previsibilidade</h3>
+                    <p class="text-sm text-iceWhite/60 font-light leading-relaxed">A ciência por trás dos números. Saiba exatamente quanto investir para lucrar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados / Autoridade -->
+    <section id="resultados" class="py-24 glass">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-cinzel text-4xl font-bold mb-4">Provado em Campo de Batalha</h2>
+                <p class="text-iceWhite/60 font-light">Não apenas teoria. Resultados reais de faturamentos exponenciais.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="p-10 glass premium-border rounded-2xl italic font-light relative" data-aos="fade-up">
+                    <i data-lucide="quote" class="absolute -top-4 -left-4 text-gold w-10 h-10"></i>
+                    <p class="mb-8 leading-relaxed">
+                        "Antes do Ezequiel, meu comercial era uma bagunça. Agora rodamos como uma empresa de verdade. O High Ticket mudou meu jogo completamente."
+                    </p>
+                    <div class="flex items-center gap-4 non-italic not-italic">
+                        <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center font-bold text-gold">JR</div>
+                        <div>
+                            <div class="font-bold">João Roberto</div>
+                            <div class="text-xs text-gold uppercase tracking-widest">Dono de Agência</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="p-10 glass premium-border rounded-2xl italic font-light relative" data-aos="fade-up" data-aos-delay="150">
+                    <i data-lucide="quote" class="absolute -top-4 -left-4 text-gold w-10 h-10"></i>
+                    <p class="mb-8 leading-relaxed">
+                        "Implementamos o script de fechamento e batemos R$ 100k logo no primeiro mês de mentoria. Simplesmente insano."
+                    </p>
+                    <div class="flex items-center gap-4 not-italic">
+                        <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center font-bold text-gold">MC</div>
+                        <div>
+                            <div class="font-bold">Marcos Costa</div>
+                            <div class="text-xs text-gold uppercase tracking-widest">Mentor Tech</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="p-10 glass premium-border rounded-2xl italic font-light relative" data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="quote" class="absolute -top-4 -left-4 text-gold w-10 h-10"></i>
+                    <p class="mb-8 leading-relaxed">
+                        "A previsibilidade é o que mais me chocou. Hoje sei exatamente quanto cada real investido vai me trazer de volta."
+                    </p>
+                    <div class="flex items-center gap-4 not-italic">
+                        <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center font-bold text-gold">AC</div>
+                        <div>
+                            <div class="font-bold">Ana Carolina</div>
+                            <div class="text-xs text-gold uppercase tracking-widest">Consultora Financeira</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Complementar -->
+    <section class="py-24 bg-deepBlack">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square overflow-hidden rounded-xl border border-gold/20" data-aos="zoom-in">
+                    <img src="https://i.postimg.cc/Wb2ZjCdN/Whats-App-Image-2026-05-16-at-14-54-06-(1).jpg" alt="Momentos" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="aspect-square overflow-hidden rounded-xl border border-gold/20" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://i.postimg.cc/LXcVNTD6/Whats-App-Image-2026-05-16-at-14-54-05-(1).jpg" alt="Resultados" class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square overflow-hidden rounded-xl border border-gold/20" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://i.postimg.cc/9XyPcy1c/Whats-App-Image-2026-05-16-at-14-57-26.jpg" alt="Mentor" class="w-full h-full object-cover grayscale">
+                </div>
+                <div class="aspect-square overflow-hidden rounded-xl border border-gold/20" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://i.postimg.cc/zGrcJJnm/Whats-App-Image-2026-05-16-at-14-54-05.jpg" alt="Foco" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gold/5 pointer-events-none"></div>
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h2 class="font-cinzel text-5xl md:text-7xl font-bold mb-8">Seu comercial <br><span class="gradient-text">está preparado?</span></h2>
+            <p class="text-xl text-iceWhite/60 mb-12 max-w-2xl mx-auto font-light">
+                Agende uma análise estratégica gratuita e descubra os gargalos que impedem sua escala hoje.
+            </p>
+            <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="inline-block bg-gold hover:bg-goldDark text-deepBlack px-12 py-6 rounded-full font-bold text-xl transition-all btn-premium uppercase tracking-[0.2em]">
+                Quero Escalar Meu Faturamento
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-deepBlack border-t border-white/5" x-data="{ active: null }">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="font-cinzel text-3xl font-bold mb-12 text-center text-gold">Perguntas Frequentes</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden glass">
+                    <button @click="active = (active === 1 ? null : 1)" class="w-full p-6 text-left flex justify-between items-center bg-white/5">
+                        <span class="font-bold">Para quem é a mentoria?</span>
+                        <i data-lucide="chevron-down" :class="active === 1 ? 'rotate-180 transition-transform' : 'transition-transform'"></i>
+                    </button>
+                    <div x-show="active === 1" x-collapse class="p-6 text-iceWhite/60 font-light border-t border-white/10" x-cloak>
+                        A mentoria é ideal para empresários, donos de agência, mentores e prestadores de serviço que já faturam pelo menos 5 dígitos mensais e desejam escalar para 6 e 7 dígitos através de um processo comercial profissional.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden glass">
+                    <button @click="active = (active === 2 ? null : 2)" class="w-full p-6 text-left flex justify-between items-center bg-white/5">
+                        <span class="font-bold">Funciona para venda de serviços?</span>
+                        <i data-lucide="chevron-down" :class="active === 2 ? 'rotate-180 transition-transform' : 'transition-transform'"></i>
+                    </button>
+                    <div x-show="active === 2" x-collapse class="p-6 text-iceWhite/60 font-light border-t border-white/10" x-cloak>
+                        Absolutamente. O método High Ticket é focado exatamente em serviços de alto valor percebido, onde a negociação e o posicionamento são os maiores diferenciais.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden glass">
+                    <button @click="active = (active === 3 ? null : 3)" class="w-full p-6 text-left flex justify-between items-center bg-white/5">
+                        <span class="font-bold">Preciso de um time de vendas pronto?</span>
+                        <i data-lucide="chevron-down" :class="active === 3 ? 'rotate-180 transition-transform' : 'transition-transform'"></i>
+                    </button>
+                    <div x-show="active === 3" x-collapse class="p-6 text-iceWhite/60 font-light border-t border-white/10" x-cloak>
+                        Não. Ensinamos você a primeiro dominar o processo para depois delegar. Se você já tem um time, vamos profissionalizar a gestão comercial deles.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-deepBlack border-t border-white/5">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+            <div>
+                <span class="font-cinzel text-xl font-bold tracking-widest text-gold">EZEQUIEL</span>
+                <p class="text-xs text-white/30 mt-2 uppercase tracking-widest">Mentor High Ticket & Estratégia Comercial</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-iceWhite/50 hover:text-gold transition-colors"><i data-lucide="instagram"></i></a>
+                <a href="#" class="text-iceWhite/50 hover:text-gold transition-colors"><i data-lucide="linkedin"></i></a>
+                <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="text-iceWhite/50 hover:text-gold transition-colors"><i data-lucide="phone"></i></a>
+            </div>
+
+            <div class="text-xs text-white/20 uppercase tracking-widest flex flex-col gap-2">
+                <span>&copy; 2026 Ezequiel Escolástico. Todos os direitos reservados.</span>
+                <span class="opacity-50">Desenvolvido por <a href="https://eudoxmedia.com.br/" class="hover:text-gold transition-colors">EudoxMedia</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Simple smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
