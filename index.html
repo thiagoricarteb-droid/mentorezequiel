@@ -97,7 +97,7 @@
     <nav class="fixed w-full z-50 transition-all duration-300 px-6 py-4" :class="scrolled ? 'glass py-3' : 'bg-transparent'">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <span class="font-cinzel text-xl md:text-2xl font-bold tracking-widest text-gold">EZEQUIEL</span>
+                <span class="font-cinzel text-xl md:text-2xl font-bold tracking-widest text-gold">EZEQUIEL ESCOLÁSTICO</span>
             </div>
 
             <!-- Desktop Menu -->
@@ -134,52 +134,41 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-[100dvh] flex items-center pt-24 pb-12 overflow-hidden">
-        <!-- Background Overlay -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-deepBlack via-deepBlack/90 lg:via-deepBlack/80 to-transparent z-10"></div>
-            <img src="https://i.postimg.cc/zGrcJJnm/Whats-App-Image-2026-05-16-at-14-54-05.jpg" alt="Ezequiel Escolástico" class="w-full h-full object-cover grayscale opacity-50 lg:opacity-40 object-[center_20%] lg:object-center">
+    <section id="home" class="relative min-h-screen bg-deepBlack flex flex-col pt-20 lg:pt-0">
+        
+        <!-- Bloco de Imagem Superior (Foco Total no Mentor) -->
+        <div class="w-full lg:absolute lg:inset-0 h-[70vh] lg:h-full z-0 overflow-hidden">
+            <!-- Mobile: Foto 3 (Close Vertical) - Visibilidade Máxima -->
+            <img src="https://i.postimg.cc/mZJTbFXc/Whats-App-Image-2026-05-16-at-15-59-32.jpg" alt="Ezequiel Escolástico" class="block lg:hidden w-full h-full object-cover">
+            
+            <!-- Desktop: Foto 1 (Lifestyle) -->
+            <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-deepBlack via-transparent z-10"></div>
+            <img src="https://i.postimg.cc/mZJTbFXc/Whats-App-Image-2026-05-16-at-15-59-32.jpg" alt="Ezequiel Escolástico" class="hidden lg:block w-full h-full object-cover">
         </div>
 
-        <div class="container mx-auto px-6 relative z-10 flex flex-col items-start gap-12">
-            <div class="w-full lg:w-3/5" data-aos="fade-right">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="h-[1px] w-12 bg-gold"></span>
-                    <span class="text-gold uppercase tracking-[0.3em] text-[10px] sm:text-xs font-semibold">Mentoria Comercial High Ticket</span>
+        <!-- Bloco de Conteúdo -->
+        <div class="container mx-auto px-6 relative z-10 flex-1 flex items-center lg:min-h-screen">
+            <div class="w-full lg:w-3/5 text-center lg:text-left py-12 lg:py-0">
+                <div class="flex items-center justify-center lg:justify-start gap-3 mb-6">
+                    <span class="h-[1.5px] w-12 bg-gold"></span>
+                    <span class="text-gold uppercase tracking-[0.4em] text-[10px] sm:text-xs font-black">Estratégia High Ticket</span>
                 </div>
-                <h1 class="font-cinzel text-[2.6rem] leading-[1.1] sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
-                    Transforme seu Comercial em uma <span class="gradient-text">Máquina de Vendas</span>
+                
+                <h1 class="font-cinzel text-5xl sm:text-7xl lg:text-8xl font-bold leading-tight mb-8">
+                    Seu Faturamento em <br class="hidden lg:block">um novo <span class="gradient-text">Patamar</span>
                 </h1>
-                <p class="text-lg sm:text-xl text-iceWhite/70 max-w-xl mb-10 leading-relaxed font-light">
-                    Aprenda os processos comerciais de elite que geram previsibilidade, escala e possibilitam o fechamento de vendas de alto valor.
+                
+                <p class="text-lg sm:text-2xl text-white/90 mb-10 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    Processos de elite para empresários que buscam escala e previsibilidade comercial real.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#metodo" class="bg-gold hover:bg-goldDark text-deepBlack px-10 py-5 rounded-full font-bold text-center transition-all btn-premium text-lg uppercase tracking-wider">
-                        Quero Escalar Meu Comercial
+                
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="bg-gold hover:bg-goldDark text-deepBlack px-12 py-5 rounded-full font-black shadow-2xl transition-all btn-premium text-lg uppercase tracking-widest text-center">
+                        Quero Escalar Agora
                     </a>
-                    <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="border border-gold text-gold hover:bg-gold/10 px-10 py-5 rounded-full font-bold text-center transition-all btn-premium text-lg uppercase tracking-wider">
-                        Falar com Especialista
+                    <a href="#metodo" class="border-2 border-gold/40 text-gold hover:bg-gold/10 px-12 py-5 rounded-full font-bold transition-all text-lg uppercase tracking-widest text-center">
+                        O Método
                     </a>
-                </div>
-
-                <!-- Metrics -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16 pt-12 border-t border-white/10">
-                    <div>
-                        <div class="text-3xl font-cinzel text-gold font-bold mb-1">+10MM</div>
-                        <div class="text-xs uppercase tracking-widest text-iceWhite/50">Em Vendas</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-cinzel text-gold font-bold mb-1">7+</div>
-                        <div class="text-xs uppercase tracking-widest text-iceWhite/50">Dígitos Anuais</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-cinzel text-gold font-bold mb-1">100+</div>
-                        <div class="text-xs uppercase tracking-widest text-iceWhite/50">Closers Formados</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-cinzel text-gold font-bold mb-1">Elite</div>
-                        <div class="text-xs uppercase tracking-widest text-iceWhite/50">Processos de Vendas</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -188,7 +177,7 @@
     <!-- Authority Banner -->
     <div class="bg-petroleumBlue py-12 relative overflow-hidden">
         <div class="container mx-auto px-6 overflow-hidden">
-            <div class="flex flex-wrap justify-between items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+            <div class="flex flex-wrap justify-between items-center gap-12 opacity-80">
                 <span class="text-xl font-cinzel uppercase tracking-[0.5em]">Private Equity</span>
                 <span class="text-xl font-cinzel uppercase tracking-[0.5em]">Scalability</span>
                 <span class="text-xl font-cinzel uppercase tracking-[0.5em]">Performance</span>
@@ -204,7 +193,8 @@
                 <div class="lg:w-1/2 relative" data-aos="fade-up">
                     <div class="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-gold/30"></div>
                     <div class="absolute -bottom-10 -right-10 w-40 h-40 border-r border-b border-gold/30"></div>
-                    <img src="https://i.postimg.cc/9XyPcy1c/Whats-App-Image-2026-05-16-at-14-57-26.jpg" alt="Ezequiel Escolástico" class="w-full relative z-10 grayscale hover:grayscale-0 transition-all duration-700 mentor-photo-mask">
+                    <!-- Removido grayscale para visibilidade máxima -->
+                    <img src="https://i.postimg.cc/9XyPcy1c/Whats-App-Image-2026-05-16-at-14-57-26.jpg" alt="Ezequiel Escolástico" class="w-full relative z-10 transition-all duration-700 mentor-photo-mask">
                 </div>
                 <div class="lg:w-1/2" data-aos="fade-left">
                     <span class="text-gold uppercase tracking-[0.3em] text-sm font-semibold mb-4 block">A Autoridade</span>
@@ -378,10 +368,10 @@
                     <img src="https://i.postimg.cc/Wb2ZjCdN/Whats-App-Image-2026-05-16-at-14-54-06-(1).jpg" alt="Momentos" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all">
                 </div>
                 <div class="aspect-square overflow-hidden rounded-xl border border-gold/20" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://i.postimg.cc/LXcVNTD6/Whats-App-Image-2026-05-16-at-14-54-05-(1).jpg" alt="Resultados" class="w-full h-full object-cover">
+                    <img src="https://i.postimg.cc/LXcVNTD6/Whats-App-Image-2026-05-16-at-14-54-05-(1).jpg" alt="Resultados" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all">
                 </div>
                 <div class="aspect-square overflow-hidden rounded-xl border border-gold/20" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://i.postimg.cc/9XyPcy1c/Whats-App-Image-2026-05-16-at-14-57-26.jpg" alt="Mentor" class="w-full h-full object-cover grayscale">
+                    <img src="https://i.postimg.cc/9XyPcy1c/Whats-App-Image-2026-05-16-at-14-57-26.jpg" alt="Mentor" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all">
                 </div>
                 <div class="aspect-square overflow-hidden rounded-xl border border-gold/20" data-aos="zoom-in" data-aos-delay="300">
                     <img src="https://i.postimg.cc/zGrcJJnm/Whats-App-Image-2026-05-16-at-14-54-05.jpg" alt="Foco" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all">
@@ -450,7 +440,7 @@
     <footer class="py-12 bg-deepBlack border-t border-white/5">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
             <div>
-                <span class="font-cinzel text-xl font-bold tracking-widest text-gold">EZEQUIEL</span>
+                <span class="font-cinzel text-xl font-bold tracking-widest text-gold">EZEQUIEL ESCOLÁSTICO</span>
                 <p class="text-xs text-white/30 mt-2 uppercase tracking-widest">Mentor High Ticket & Estratégia Comercial</p>
             </div>
             

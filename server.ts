@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { createServer as createViteServer } from 'vite';
 
 dotenv.config();
@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 
 async function startServer() {
     const app = express();
-    const PORT = process.env.PORT || 3000;
+    const PORT = Number(process.env.PORT) || 3000;
 
     app.use(express.json());
 
@@ -23,10 +23,10 @@ async function startServer() {
             const apiKey = process.env.GEMINI_API_KEY;
             if (!apiKey) return res.status(500).json({ error: 'GEMINI_API_KEY ausente.' });
             
-            const genAI = new GoogleGenAI(apiKey);
+            const genAI = new GoogleGenerativeAI(apiKey);
             const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
             const result = await model.generateContent(message);
-            res.json({ reply: (await result.response).text() });
+            res.json({ reply: result.response.text() });
         } catch (error: any) {
             res.status(500).json({ error: error.message });
         }
