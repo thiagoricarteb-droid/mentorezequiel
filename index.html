@@ -92,52 +92,66 @@
     </style>
 </head>
 <body x-data="{ mobileMenu: false, scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 50)">
-
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 px-6 py-4" :class="scrolled ? 'glass py-3' : 'bg-transparent'">
+    <nav class="fixed w-full z-50 transition-all duration-500 px-6 py-4" :class="scrolled ? 'glass py-3' : 'bg-transparent'">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <span class="font-cinzel text-xl md:text-2xl font-bold tracking-widest text-gold">EZEQUIEL ESCOLÁSTICO</span>
+            <div class="flex items-center">
+                <a href="#home" class="font-cinzel text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-gold hover:text-goldDark transition-colors">
+                    EZEQUIEL <span class="hidden sm:inline">ESCOLÁSTICO</span><span class="sm:hidden">E.</span>
+                </a>
             </div>
 
             <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium">
-                <a href="#home" class="hover:text-gold transition-colors">Início</a>
-                <a href="#sobre" class="hover:text-gold transition-colors">Sobre</a>
-                <a href="#metodo" class="hover:text-gold transition-colors">Método</a>
-                <a href="#resultados" class="hover:text-gold transition-colors">Resultados</a>
-                <div class="flex items-center gap-4 ml-4">
-                    <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="text-gold hover:text-goldDark transition-colors">
+            <div class="hidden lg:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-bold">
+                <nav class="flex items-center gap-6 text-iceWhite/70">
+                    <a href="#home" class="hover:text-gold transition-colors">Início</a>
+                    <a href="#sobre" class="hover:text-gold transition-colors">Sobre</a>
+                    <a href="#metodo" class="hover:text-gold transition-colors">Método</a>
+                    <a href="#resultados" class="hover:text-gold transition-colors">Resultados</a>
+                </nav>
+                
+                <div class="h-6 w-[1px] bg-white/10 mx-2"></div>
+
+                <div class="flex items-center gap-5">
+                    <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="text-gold hover:text-goldDark transition-all hover:scale-110">
                         <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <span class="sr-only">Instagram</span>
                     </a>
-                    <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="bg-gold hover:bg-goldDark text-deepBlack px-6 py-2 rounded-full font-bold transition-all btn-premium">
-                        Falar com Especialista
+                    <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="bg-gold hover:bg-goldDark text-deepBlack px-6 py-2.5 rounded-full font-black transition-all btn-premium shadow-lg shadow-gold/10">
+                        MENTORIA AGORA
                     </a>
                 </div>
             </div>
 
             <!-- Mobile Toggle -->
-            <button class="md:hidden text-gold" @click="mobileMenu = !mobileMenu">
-                <i data-lucide="menu" x-show="!mobileMenu"></i>
-                <i data-lucide="x" x-show="mobileMenu"></i>
+            <button class="lg:hidden text-gold p-2 hover:bg-gold/10 rounded-lg transition-colors" @click="mobileMenu = !mobileMenu">
+                <i data-lucide="menu" class="w-7 h-7" x-show="!mobileMenu"></i>
+                <i data-lucide="x" class="w-7 h-7" x-show="mobileMenu"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
         <div x-show="mobileMenu" 
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 -translate-y-10"
              x-transition:enter-end="opacity-100 translate-y-0"
-             class="absolute top-full left-0 w-full glass p-6 flex flex-col gap-6 md:hidden text-center uppercase tracking-widest text-sm font-medium"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-10"
+             class="absolute top-full left-0 w-full glass border-t border-white/5 p-8 flex flex-col gap-6 lg:hidden text-center uppercase tracking-[0.2em] text-xs font-bold shadow-2xl"
              x-cloak>
-            <a href="#home" @click="mobileMenu = false" class="hover:text-gold">Início</a>
-            <a href="#sobre" @click="mobileMenu = false" class="hover:text-gold">Sobre</a>
-            <a href="#metodo" @click="mobileMenu = false" class="hover:text-gold">Método</a>
-            <a href="#resultados" @click="mobileMenu = false" class="hover:text-gold">Resultados</a>
-            <div class="flex justify-center gap-6 py-2">
-                <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="text-gold"><i data-lucide="instagram"></i></a>
+            <a href="#home" @click="mobileMenu = false" class="hover:text-gold py-2 border-b border-white/5">Início</a>
+            <a href="#sobre" @click="mobileMenu = false" class="hover:text-gold py-2 border-b border-white/5">Sobre</a>
+            <a href="#metodo" @click="mobileMenu = false" class="hover:text-gold py-2 border-b border-white/5">Método</a>
+            <a href="#resultados" @click="mobileMenu = false" class="hover:text-gold py-2 border-b border-white/5">Resultados</a>
+            
+            <div class="pt-4 space-y-6">
+                <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="flex items-center justify-center gap-3 text-gold bg-white/5 border border-gold/20 py-4 rounded-xl hover:bg-white/10 transition-all">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                    <span>@ezequielescolastico_</span>
+                </a>
+                <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" @click="mobileMenu = false" class="block w-full bg-gold text-deepBlack py-5 rounded-full font-black shadow-xl">QUERO ESCALAR AGORA</a>
             </div>
-            <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" @click="mobileMenu = false" class="bg-gold text-deepBlack py-3 rounded-full font-bold">Falar com Especialista</a>
         </div>
     </nav>
 
@@ -145,9 +159,9 @@
     <section id="home" class="relative min-h-screen bg-deepBlack flex flex-col pt-20 lg:pt-0">
         
         <!-- Bloco de Imagem Superior (Foco Total no Mentor) -->
-        <div class="w-full lg:absolute lg:inset-0 h-[70vh] lg:h-full z-0 overflow-hidden">
+        <div class="w-full lg:absolute lg:inset-0 h-[50vh] sm:h-[60vh] lg:h-full z-0 overflow-hidden">
             <!-- Mobile: Foto 3 (Close Vertical) - Visibilidade Máxima -->
-            <img src="https://i.postimg.cc/mZJTbFXc/Whats-App-Image-2026-05-16-at-15-59-32.jpg" alt="Ezequiel Escolástico" class="block lg:hidden w-full h-full object-cover">
+            <img src="https://i.postimg.cc/mZJTbFXc/Whats-App-Image-2026-05-16-at-15-59-32.jpg" alt="Ezequiel Escolástico" class="block lg:hidden w-full h-full object-cover object-center">
             
             <!-- Desktop: Foto 1 (Lifestyle) -->
             <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-deepBlack via-transparent z-10"></div>
@@ -162,13 +176,20 @@
                     <span class="text-gold uppercase tracking-[0.4em] text-[10px] sm:text-xs font-black">Estratégia High Ticket</span>
                 </div>
                 
-                <h1 class="font-cinzel text-5xl sm:text-7xl lg:text-8xl font-bold leading-tight mb-8">
+                <h1 class="font-cinzel text-[2.6rem] sm:text-[3.8rem] lg:text-[5.1rem] font-bold leading-tight mb-8">
                     Seu Faturamento em <br class="hidden lg:block">um novo <span class="gradient-text">Patamar</span>
                 </h1>
                 
-                <p class="text-lg sm:text-2xl text-white/90 mb-10 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                <p class="text-lg sm:text-2xl text-white/90 mb-4 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     Processos de elite para empresários que buscam escala e previsibilidade comercial real.
                 </p>
+                
+                <div class="mb-10 flex justify-center lg:justify-start">
+                    <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="inline-flex items-center gap-3 text-gold hover:text-goldDark transition-all text-sm uppercase tracking-[0.2em] font-bold bg-white/5 border border-gold/20 px-6 py-3 rounded-full hover:scale-105">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        @ezequielescolastico_
+                    </a>
+                </div>
                 
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                     <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="bg-gold hover:bg-goldDark text-deepBlack px-12 py-5 rounded-full font-black shadow-2xl transition-all btn-premium text-lg uppercase tracking-widest text-center">
@@ -218,9 +239,14 @@
                             Seu foco é simples: **Clareza, Processo e Fechamento.** Se você busca sair do "marketing de esperança" e entrar no campo da previsibilidade matemática de lucros, você está no lugar certo.
                         </p>
                     </div>
-                    <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="inline-flex items-center gap-3 mt-10 text-gold font-bold uppercase tracking-widest hover:gap-6 transition-all">
-                        Agendar Análise Estratégica <i data-lucide="arrow-right"></i>
-                    </a>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-10">
+                        <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="inline-flex items-center justify-center gap-3 text-deepBlack bg-gold px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-goldDark transition-all">
+                            Análise Estratégica <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="inline-flex items-center justify-center gap-3 text-gold border border-gold/30 px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-gold/10 transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5"></i> Instagram
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -452,10 +478,15 @@
                 <p class="text-xs text-white/30 mt-2 uppercase tracking-widest">Mentor High Ticket & Estratégia Comercial</p>
             </div>
             
-            <div class="flex gap-6">
-                <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="text-iceWhite/50 hover:text-gold transition-colors"><i data-lucide="instagram"></i></a>
-                <a href="#" class="text-iceWhite/50 hover:text-gold transition-colors"><i data-lucide="linkedin"></i></a>
-                <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="text-iceWhite/50 hover:text-gold transition-colors"><i data-lucide="phone"></i></a>
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="text-gold hover:text-goldDark transition-all flex items-center gap-3 bg-white/5 border border-gold/20 px-6 py-3 rounded-full group">
+                    <i data-lucide="instagram" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs uppercase tracking-[0.2em] font-bold">Instagram</span>
+                </a>
+                <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" target="_blank" class="text-white/50 hover:text-gold transition-colors flex items-center gap-3 px-6 py-3">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    <span class="text-xs uppercase tracking-widest font-bold">Contato</span>
+                </a>
             </div>
 
             <div class="text-xs text-white/20 uppercase tracking-widest flex flex-col gap-2">
