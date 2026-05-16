@@ -75,6 +75,10 @@
             mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
 
+        .text-shadow-premium {
+            text-shadow: 3px 6px 12px rgba(0, 0, 0, 0.9), 0 0 40px rgba(176, 141, 87, 0.15);
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -113,10 +117,6 @@
                 <div class="h-6 w-[1px] bg-white/10 mx-2"></div>
 
                 <div class="flex items-center gap-5">
-                    <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="text-gold hover:text-goldDark transition-all hover:scale-110">
-                        <i data-lucide="instagram" class="w-5 h-5"></i>
-                        <span class="sr-only">Instagram</span>
-                    </a>
                     <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="bg-gold hover:bg-goldDark text-deepBlack px-6 py-2.5 rounded-full font-black transition-all btn-premium shadow-lg shadow-gold/10">
                         MENTORIA AGORA
                     </a>
@@ -146,10 +146,6 @@
             <a href="#resultados" @click="mobileMenu = false" class="hover:text-gold py-2 border-b border-white/5">Resultados</a>
             
             <div class="pt-4 space-y-6">
-                <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="flex items-center justify-center gap-3 text-gold bg-white/5 border border-gold/20 py-4 rounded-xl hover:bg-white/10 transition-all">
-                    <i data-lucide="instagram" class="w-5 h-5"></i>
-                    <span>@ezequielescolastico_</span>
-                </a>
                 <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" @click="mobileMenu = false" class="block w-full bg-gold text-deepBlack py-5 rounded-full font-black shadow-xl">QUERO ESCALAR AGORA</a>
             </div>
         </div>
@@ -176,20 +172,13 @@
                     <span class="text-gold uppercase tracking-[0.4em] text-[10px] sm:text-xs font-black">Estratégia High Ticket</span>
                 </div>
                 
-                <h1 class="font-cinzel text-[2.6rem] sm:text-[3.8rem] lg:text-[5.1rem] font-bold leading-tight mb-8">
+                <h1 class="font-cinzel text-[2.6rem] sm:text-[3.8rem] lg:text-[5.1rem] font-bold leading-tight mb-8 text-shadow-premium">
                     Seu Faturamento em <br class="hidden lg:block">um novo <span class="gradient-text">Patamar</span>
                 </h1>
                 
-                <p class="text-lg sm:text-2xl text-white/90 mb-4 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                <p class="text-lg sm:text-2xl text-white/90 mb-10 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     Processos de elite para empresários que buscam escala e previsibilidade comercial real.
                 </p>
-                
-                <div class="mb-10 flex justify-center lg:justify-start">
-                    <a href="https://www.instagram.com/ezequielescolastico_?igsh=YWNob2Y3ZXRoODhw" target="_blank" class="inline-flex items-center gap-3 text-gold hover:text-goldDark transition-all text-sm uppercase tracking-[0.2em] font-bold bg-white/5 border border-gold/20 px-6 py-3 rounded-full hover:scale-105">
-                        <i data-lucide="instagram" class="w-5 h-5"></i>
-                        @ezequielescolastico_
-                    </a>
-                </div>
                 
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                     <a href="https://ezequiel12.yayforms.link/YxV14Bv?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR1kYxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadz_Q-WWs99U7JrB_y_9K1rfpzKl-xK67SLohdoed_RJ7FFvZE11n4r7EbCWQ_aem_8DMKgZjLUv4icKCc2l8yKA&utm_id=97760_v0_s00_e0_tv3" class="bg-gold hover:bg-goldDark text-deepBlack px-12 py-5 rounded-full font-black shadow-2xl transition-all btn-premium text-lg uppercase tracking-widest text-center">
